@@ -1,11 +1,10 @@
 
 function loadData() {
-
-    var $body = $('body');
-    var $wikiElem = $('#wikipedia-links');
-    var $nytHeaderElem = $('#nytimes-header');
-    var $nytElem = $('#nytimes-articles');
-    var $greeting = $('#greeting');
+    let $body = $('body');
+    let $wikiElem = $('#wikipedia-links');
+    let $nytHeaderElem = $('#nytimes-header');
+    let $nytElem = $('#nytimes-articles');
+    let $greeting = $('#greeting');
 
     // clear out old data before new request
     $wikiElem.text("");
