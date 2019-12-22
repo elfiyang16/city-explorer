@@ -6,7 +6,7 @@ class Weather {
         +"&APPID="+ config.weatherApi;
     }
 
-    getFiveDayWeather(cb){
+    getWeather(cb){
         let request = new XMLHttpRequest();
 
         request.open('GET', this.url);

@@ -5,6 +5,7 @@
     <title>Your Moving Companion</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="src/config.js"></script>
+    <script src="src/jquery/wiki.js"></script>
     <script src="src/jquery/news-controller.js"></script>
     <script src="src/jquery/news-view.js"></script>
     <script src="src/jquery/news-model.js"></script>
@@ -48,12 +49,15 @@
           console.log(cityStr)
          // call weatherApi
           currentWeather = new Weather(cityStr)
-          currentWeather.getFiveDayWeather(currentWeather.weatherCallBack);
+          currentWeather.getWeather(currentWeather.weatherCallBack);
         // call guardianApi
           let newsModel = new NewsModel(cityStr)
           let newsView = new NewsView()
           let newsController = new NewsController(newsModel, newsView)
           newsController.addArticleToHTML();
+          // call wikiApi
+          let wikiLinks = new Wiki(cityStr)
+          wikiLinks.getWikiLinks()
 
           return false;
         }
