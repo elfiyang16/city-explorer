@@ -6,8 +6,6 @@ function loadData() {
     let $nytElem = $('#nytimes-articles');
     let $greeting = $('#greeting');
 
-
-    // clear out old data before new request
     $wikiElem.text("");
     $nytElem.text("");
 
@@ -16,17 +14,6 @@ function loadData() {
     let address = streetStr + ','+ cityStr
 
     $greeting.text('So, you want to live at ' + address + '?');
-
-    // let imgSize = '600x300'
-    //
-    // let streetViewUrl =
-    // 'https://maps.googleapis.com/maps/api/streetview?size=600x300&location='
-    // + address
-    // +'&key=' + config.MapApiKey;
-    //
-    // $body.append(
-    //   `<img class="bgimg" src="${streetViewUrl}" >`
-    // )
 
     // NYT Articles
     // let url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
@@ -72,4 +59,3 @@ function loadData() {
 
     return false;
 };
-// $('#form-container').submit(loadData);
