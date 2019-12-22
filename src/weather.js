@@ -11,7 +11,6 @@ class Weather {
 
         request.open('GET', this.url);
         request.send();
-
         request.onload = function() {
             let parsedResponse = JSON.parse(this.responseText);
             console.log(parsedResponse)
@@ -20,42 +19,14 @@ class Weather {
     }
 
      weatherCallBack(results){
-      console.log(results)
       let weatherElem = document.getElementById("weather-stats")
-      weatherElem.innerHTML = results.main.temp
+
+      let weatherMain = results.weather[0].main,
+       currentTemp = Math.round(results.main.temp),
+       lowTemp = Math.round(results.main.temp_min),
+       highTemp = Math.round(results.main.temp_max);
+
+      weatherElem.innerHTML = `Current Weather: ${weatherMain}` + "<p>" + `Temperature Now: ${currentTemp} Celsius`
+      + "<p>" + `Low/High: ${lowTemp}/${highTemp} Celsius`
     }
 }
-
-
-  // function getFiveDayWeather(url, cb){
-  //     let weatherUrl = url
-  //     console.log(weatherUrl)
-  //     let request = new XMLHttpRequest();
-  //
-  //     request.open('GET', weatherUrl);
-  //     request.send();
-  //
-  //     request.onload = function() {
-  //         let parsedResponse = JSON.parse(this.responseText);
-  //         console.log(parsedResponse)
-  //         cb(parsedResponse)
-  //     };
-  // }
-
-  // function weatherCallBack(results){
-  //   console.log(results)
-  //   let weatherElem = document.getElementById("weather-stats")
-  //
-  //   weatherElem.innerHTML = results.main.temp
-  //   // results.forEach(function(res) {
-  //   //     newArticle = new Article(res.webTitle, res.webUrl);
-  //   //     articles.push(newArticle)
-  //   // });
-  //   //
-  //   // articles.forEach(function(article) {
-  //   //     let node = document.createElement("li");
-  //   //     let textNode = document.createTextNode(article.headline);
-  //   //     node.appendChild(textNode);
-  //   //     weatherList.appendChild(node)
-  //   // });
-  // }
