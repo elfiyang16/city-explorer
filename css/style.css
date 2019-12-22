@@ -30,6 +30,14 @@ body {background-color: #CCC;}
     background-color: rgba(255,255,255,0.7);
 }
 
+.weather-container {
+  float:right;
+  width:290px;
+  padding:10px;
+  margin-right: 10px;
+  background-color: rgba(255,255,255,0.7);
+}
+
 .article-list {
     margin: 0;
     padding: 0;
