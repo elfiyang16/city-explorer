@@ -5,7 +5,6 @@
     <title>Your Moving Companion</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="src/script.js"></script>
-    <script src="src/xmlhttp/wiki.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,9 +30,13 @@
         <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</div>
     </div>
 
+    <script src="src/xmlhttp/wiki.js"></script>
+
     <script>
       window.addEventListener('load', () => {
-        $('#form-container').submit(loadData)
+        wikiArticles = new WikiSearch(cityStr, wikiUrl)
+        wikiArticles.getHeadlinesFromWiki()
+
       })
     </script>
 
