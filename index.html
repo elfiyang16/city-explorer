@@ -5,8 +5,10 @@
     <title>Your Moving Companion</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="src/config.js"></script>
-    <!-- <script src="src/script.js"></script> -->
-    <script src="src/weather.js"></script>
+    <script src="src/jquery/news-controller.js"></script>
+    <script src="src/jquery/news-view.js"></script>
+    <script src="src/jquery/news-model.js"></script>
+    <script src="src/xmlhttp/weather.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,9 +33,9 @@
     </div>
 
 
-    <div class="nytimes-container">
-        <h3 id="nytimes-header">New York Times Articles</h3>
-        <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</div>
+    <div class="guardian-container">
+        <h3 id="guardian-header">Guardian Articles</h3>
+        <ul id="guardian-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</div>
     </div>
 
 
@@ -46,9 +48,15 @@
         function loadData(){
           let cityStr = document.getElementById("city").value
           console.log(cityStr)
-
+         // call weatherApi
           currentWeather = new Weather(cityStr)
           currentWeather.getFiveDayWeather(currentWeather.weatherCallBack);
+        // call guardianApi
+          let  model = new ArticleList()
+          let view = new ArticleListView()
+          let newsController = new NewsContoller(model, view)
+          newsController.addHTMLtoElement();
+
 
           return false;
         }
