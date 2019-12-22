@@ -13,7 +13,6 @@ class Weather {
         request.send();
         request.onload = function() {
             let parsedResponse = JSON.parse(this.responseText);
-            console.log(parsedResponse)
             cb(parsedResponse)
         };
     }

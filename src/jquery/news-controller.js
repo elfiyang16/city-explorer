@@ -1,20 +1,12 @@
-(function(exports){
-
-  function NewsController(articleModel, articleView){
-    this.articleModel = articleModel
-    this.articleView = articleView
+class NewsController {
+  constructor(newsModel, newsView){
+    this.newsModel = newsModel
+    this.newsView = newsView
+    console.log("create news controller")
   }
-
-  NewsController.prototype = {
-    addHTMLtoElement: function(){
-      let self = this
-      let element = document.getElementById('app');
-      this.articleModel.saveArticles(function(returnRes){
-        element.innerHTML = self.articleView.returnHTML(returnRes);
-      })
-    }
+  addArticleToHTML(){
+    debugger;
+    let self = this
+    this.newsModel.saveArticles(self.newsView.returnHTML)
   }
-
- exports.NewsContoller = NewsController
-
-})(this);
+}

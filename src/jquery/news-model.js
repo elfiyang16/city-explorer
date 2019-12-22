@@ -1,38 +1,38 @@
-(function(exports){
-  let apiKey = config.guardianApi
-  let worldNewsApi =
-  "https://content.guardianapis.com/search?q=technology&from-date=2019-12-01&show-fields=trailText,thumbnail,body&show-blocks=all&api-key="+apiKey
-  function ArticleList(){
- }
-
-  ArticleList.prototype = {
-    saveArticles:function(cb){
-      let self = this;
-      $.ajax({
-        type: 'GET',
-        url:worldNewsApi,
-        dataType: 'jsonp',
-        async: false,
-        success: function(result) {
-           cb(self.getArticles(result))
-        }
-      })
-    },
-
-    getArticles: function(data){
-      let results = data.response.results.map(function(article) {
-        return {
-          id: article.id,
-          title: article.webTitle,
-          extract: article.fields.trailText,
-          body: article.fields.body,
-          img: article.fields.thumbnail
-        }
-      });
-
-      return results;
-    },
-
+class NewsModel {
+  constructor(cityName){
+    this.cityName = cityName
+    let apiKey = config.guardianApi
+    this.guardianUrl =
+    "https://content.guardianapis.com/search?q=" + this.cityName
+    + "&from-date=2019-06-01&show-fields=trailText&api-key="
+    +apiKey
+    console.log(this.guardianUrl)
   }
-  exports.ArticleList = ArticleList
-})(this)
+
+  saveArticles(cb){
+    $.ajax({
+      type: 'GET',
+      url:this.guardianUrl,
+      dataType: 'jsonp',
+      async: false,
+      success: function(result) {
+        // delete self.get
+        console.log(result)
+         // cb(getArticles(result))
+         cb(result)
+      }
+    })
+  }
+
+  returnHTML(data){
+    let $guardianElem = $('#guardian-articles')
+    let articles = data.response.results;
+    for (let i = 0; i < articles.length; i++) {
+        let article = articles[i];
+        $guardianElem.append('<li class="article">'+
+            '<a href="'+article.webUrl+'">'+article.webTitle+'</a>'+
+            '<p>' + article.fields.trailText + '</p>'+
+        '</li>');
+    }
+   }
+}

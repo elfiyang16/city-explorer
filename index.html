@@ -39,8 +39,6 @@
     </div>
 
 
-
-
     <script>
       window.addEventListener('load', () => {
         $('#form-container').submit(loadData);
@@ -49,14 +47,14 @@
           let cityStr = document.getElementById("city").value
           console.log(cityStr)
          // call weatherApi
-          currentWeather = new Weather(cityStr)
-          currentWeather.getFiveDayWeather(currentWeather.weatherCallBack);
+          // currentWeather = new Weather(cityStr)
+          // currentWeather.getFiveDayWeather(currentWeather.weatherCallBack);
         // call guardianApi
-          let  model = new ArticleList()
-          let view = new ArticleListView()
-          let newsController = new NewsContoller(model, view)
-          newsController.addHTMLtoElement();
-
+          let newsModel = new NewsModel(cityStr)
+          newsModel.saveArticles(newsModel.returnHTML)
+          // let newsView = new NewsView()
+           // let newsController = new NewsContoller(newsModel, newsView)
+          // newsController.addArticleToHTML();
 
           return false;
         }
