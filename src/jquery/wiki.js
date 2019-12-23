@@ -4,9 +4,7 @@ class Wiki{
     this.wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search='
     + this.cityName
     + '&format=json&callback=wikiCallback';
-
   }
-
 
   getWikiLinks(){
     let wikiRequestTimeout = setTimeout(function(){
@@ -24,7 +22,7 @@ class Wiki{
 
           for (let i = 0; i < articleList.length; i++) {
               let articleStr = articleList[i];
-              let url = 'http://en.wikipedia.org/wiki/' + articleStr;
+              let url = 'https://en.wikipedia.org/wiki/' + articleStr;
               $wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
           };
           clearTimeout(wikiRequestTimeout);

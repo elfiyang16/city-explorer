@@ -25,7 +25,7 @@
     <h2 id="greeting" class="greeting">Where do you want to live?</h2>
 
     <div class="weather-container">
-        <h3 id="weather-header">5-Day Weather Forecast</h3>
+        <h3 id="weather-header">Local Weather</h3>
         <ul id="weather-stats" class="article-list">How is the weather in your new city? Enter an address and hit submit and our weather forecast will tell you here!</div>
     </div>
 
@@ -46,8 +46,11 @@
         $('#form-container').submit(loadData);
 
         function loadData(){
-          let cityStr = document.getElementById("city").value
-          console.log(cityStr)
+          let cityStr = document.getElementById("city").value,
+          streetStr = document.getElementById("street").value,
+          greeting = document.getElementById("greeting")
+
+          greeting.innerHTML = `All you need to know to explore near ${streetStr}, ${cityStr}`
          // call weatherApi
           currentWeather = new Weather(cityStr)
           currentWeather.getWeather(currentWeather.weatherCallBack);
