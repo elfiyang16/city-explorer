@@ -14,23 +14,14 @@ class BingMap{
     document.getElementById('body').appendChild(bgImg);
   }
 
-  fetchImage(){
+  fetchImage(cb){
     fetch(this.mapUrl)
     .then(function(data){
-      let cityRoadUrl = data.url
-      createImage(cityRoadUrl)
-
-      // bgImg = document.createElement("img");
-      // bgImg.className = "bgimg"
-      // bgImg.src = `${cityRoadUrl}`
-      // document.getElementById('body').appendChild(bgImg);
-
+      cb(data.url)
     })
     .catch(function(error) {
       console.log(error);
     });
-
-    //
   }
 
 }

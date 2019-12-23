@@ -61,7 +61,7 @@
           wikiLinks.getWikiLinks()
           // call bingMapApi
           let cityMap = new BingMap(cityStr)
-          cityMap.fetchImage()
+          cityMap.fetchImage(cityMap.createImage)
 
 
           return false;
