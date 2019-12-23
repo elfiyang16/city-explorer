@@ -50,19 +50,15 @@ When validate the response, to convert your API response result into corresponde
 ## Reflection
 Since the main purpose of the project is to explore and compare the different ways to make API (in AJAX) calls, I noted down some of my feedback below:
 
-### XMLHttpRequest
+* XMLHttpRequest
 Using XMLHttpRequest is the most old fashioned way, but it does provide beginners like me with basic understanding of how Asynchronous HTTP request works. But to manipulate the response data, there are nice handy wrappers available and you probably have to investigate the documentation yourself. Also, methods like `.onreadystatechange` include some code that seems a bit duplicated, not concise.
 
-###jQuery
-jQuery is a client-side programming language you can be used to create cool web applications. The most amazing part of it is its simplicity and easy to learn. Something I didn't manage to explore this time but I heard a lot is its flexibility because jQuery allows users to add plug-ins. From a learner perspective, it has tons of support and documentation as well.
-
-So any drawbacks?
-
-Well, jQuery’s Ajax is 84 KB. If in a web application like mine, and I'm only use jQuery to make only a few requests, then It is not at all bandwidth friendly. Also, with Promises, you need to wrap jQuery in something like below:
+* jQuery
+jQuery is a client-side programming language you can be used to create cool web applications. The most amazing part of it is its simplicity and easy to learn. Something I didn't manage to explore this time but I heard a lot is its flexibility because jQuery allows users to add plug-ins. From a learner perspective, it has tons of support and documentation as well. So any drawbacks? Well, jQuery’s Ajax is 84 KB. If in a web application like mine, and I'm only use jQuery to make only a few requests, then It is not at all bandwidth friendly. Also, with Promises, you need to wrap jQuery in something like below:
 `var jQueryPromise = $.ajax('/data.json');
 var realPromise = Promise.resolve(jQueryPromise)`
 
-###Fetch API
+* Fetch API
 
 The Fetch API provides an interface for fetching resources.  The fetch method takes a mandatory request path as argument and returns a Promise. What I find really nice about it is its easy to use, and even the situation in my case is not that complicated, it seems that you can totally avoid *Callback hell* through promise chaining.
 
