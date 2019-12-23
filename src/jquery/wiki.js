@@ -1,7 +1,7 @@
 class Wiki{
   constructor(cityName){
     this.cityName = cityName
-    this.wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search='
+    this.wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='
     + this.cityName
     + '&format=json&callback=wikiCallback';
   }
