@@ -42,9 +42,9 @@ There is no test library used for this project, however it is tested using Postm
 
 ![postman1](images/Postman_Bing.png)
 <p>
-![postman2](images/Postman Schema.png?raw=true)
+![postman2](images/Postman Schema.png)
 </p>
-*note*
+* note
 When validate the response, to convert your API response result into correspondent JSON schema, I found this site particularly useful :https://jsonschema.net/
 
 ## Reflection
