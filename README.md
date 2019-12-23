@@ -41,9 +41,9 @@ Either way, once open, you can see a single page that takes 2 user input `street
 There is no test library used for this project, however it is tested using Postman (https://www.getpostman.com/).
 
 ![postman1](images/Postman_Bing.png)
-
+<p>
 ![postman2](images/Postman Schema.png?raw=true)
-
+</p>
 *note*
 When validate the response, to convert your API response result into correspondent JSON schema, I found this site particularly useful :https://jsonschema.net/
 
