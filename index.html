@@ -5,6 +5,7 @@
     <title>Your Moving Companion</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="src/config.js"></script>
+    <script src="src/fetchApi/map.js"></script>
     <script src="src/jquery/wiki.js"></script>
     <script src="src/jquery/news-controller.js"></script>
     <script src="src/jquery/news-view.js"></script>
@@ -12,7 +13,7 @@
     <script src="src/xmlhttp/weather.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id = "body">
     <form id="form-container" class="form-container">
         <label for="street">Street: </label><input type="text" id="street" value="">
         <label for="city">City: </label><input type="text" id="city" value="">
@@ -58,6 +59,10 @@
           // call wikiApi
           let wikiLinks = new Wiki(cityStr)
           wikiLinks.getWikiLinks()
+          // call bingMapApi
+          let cityMap = new BingMap(cityStr)
+          cityMap.fetchImage()
+
 
           return false;
         }
