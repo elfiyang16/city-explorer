@@ -28,7 +28,8 @@ The app requires no configuration. There are 2 ways to interact with the app.
 2. From Heroku
 - The app is deployed on Heroku so you can simply visit `https://city-explorer-js.herokuapp.com/ `
 
-Either way, once open, you can see a single page that takes 2 user input `street name` and `city name`. Input relevant data as you like and you can see:
+## Usage
+Once the app is open, you can see a single page that takes 2 user input `street name` and `city name`. Input relevant data as you like and you can see:
 * Relevant news in last 6 months
 * Relevant wiki links
 * Current weather
